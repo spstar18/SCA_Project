@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">SCA_Project</string>
     <string name="label_1">자동 로그인</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
