@@ -3,17 +3,22 @@
 
     <item
         android:id="@+id/menu_home"
+        android:icon="@drawable/email18dp"
         android:title="home" />
     <item
         android:id="@+id/menu_alarm"
+        android:icon="@drawable/email18dp"
         android:title="alarm" />
     <item
         android:id="@+id/menu_question"
+        android:icon="@drawable/email18dp"
         android:title="question" />
     <item
         android:id="@+id/menu_write"
+        android:icon="@drawable/email18dp"
         android:title="write" />
     <item
         android:id="@+id/menu_user"
+        android:icon="@drawable/email18dp"
         android:title="user" />
 </menu>

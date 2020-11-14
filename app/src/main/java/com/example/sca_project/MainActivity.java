@@ -37,6 +37,10 @@ public class MainActivity extends AppCompatActivity {
         questionFragment = new questionFragment();
         userpageFragment = new UserpageFragment();
 
+
+        //실행시 home프래그먼트를 기본으로 띄움
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_place,homeFragment).commitAllowingStateLoss();
+        //바텀네비 눌렀을 때 바꾸기
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
