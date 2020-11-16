@@ -10,8 +10,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import static com.example.sca_project.R.id.menu_home;
 import static com.example.sca_project.R.id.menu_alarm;
+import static com.example.sca_project.R.id.menu_journal;
 import static com.example.sca_project.R.id.menu_question;
-import static com.example.sca_project.R.id.menu_write;
+import static com.example.sca_project.R.id.menu_journal;
 import static com.example.sca_project.R.id.menu_user;
 
 
@@ -62,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     }
 
-                    case menu_write:{
+                    case menu_journal:{
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_place,journalFragment).commitAllowingStateLoss();
                         return true;
                     }
