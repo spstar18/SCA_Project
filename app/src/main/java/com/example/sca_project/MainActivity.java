@@ -64,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
         //실행시 home프래그먼트를 기본으로 띄움
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_place,homeFragment).commitAllowingStateLoss();
         fab.hide();
+        animclose();
         //바텀네비 눌렀을 때 바꾸기
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -75,23 +76,20 @@ public class MainActivity extends AppCompatActivity {
                     case menu_home:{
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_place,homeFragment).commitAllowingStateLoss();
                         fab.hide();
-                        fab_status.hide();
-                        fab_write.hide();
+                        animclose();
                         return true;
 
                     }
                     case menu_alarm:{
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_place,alarmFragment).commitAllowingStateLoss();
                         fab.show();
-                        fab_status.hide();
-                        fab_write.hide();
+                        animclose();
                         return true;
                     }
                     case menu_question:{
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_place,questionFragment).commitAllowingStateLoss();
                         fab.show();
-                        fab_status.hide();
-                        fab_write.hide();
+                        animclose();
                         return true;
                     }
 
@@ -105,8 +103,7 @@ public class MainActivity extends AppCompatActivity {
                     case menu_user:{
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_place,userpageFragment).commitAllowingStateLoss();
                         fab.hide();
-                        fab_status.hide();
-                        fab_write.hide();
+                        animclose();
                         return true;
                     }
 
@@ -154,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
         fab_status.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intent = new Intent(MainActivity.this,JournalstatusActivity.class);
+                intent = new Intent(MainActivity.this,JournalreadActivity.class);
                 startActivity(intent);
             }
         });
@@ -180,5 +177,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void animclose(){
+        fab_status.hide();
+        fab_write.hide();
+        fab_status.setClickable(false);
+        fab_write.setClickable(false);
+    }
 
 }

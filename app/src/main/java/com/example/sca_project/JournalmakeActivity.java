@@ -18,8 +18,7 @@ import java.util.Date;
 public class JournalmakeActivity extends AppCompatActivity {
 
     String jtitle;
-    EditText title_edt;
-    EditText main_edt;
+    EditText title_edt, main_edt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,12 +44,11 @@ public class JournalmakeActivity extends AppCompatActivity {
         jtitle = numtoday+txttitle;
 
         //수정시 데이터 가져오기
-        SharedPreferences spdiary = getSharedPreferences(jtitle, Context.MODE_PRIVATE);
-        String dbtitle = spdiary.getString("title", "");
+        SharedPreferences spjournal = getSharedPreferences(jtitle, Context.MODE_PRIVATE);
+        String dbtitle = spjournal.getString("title", "");
         title_edt.setText(dbtitle);
-
-        String dbdiary = spdiary.getString("journal_main", "");
-        main_edt.setText(dbdiary);
+        String dbjournal = spjournal.getString("journal_main", "");
+        main_edt.setText(dbjournal);
 
 
         //저장버튼 누를 시
