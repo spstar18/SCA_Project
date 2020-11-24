@@ -131,25 +131,31 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent);
                         break;
                     case "question":
-                        intent = new Intent(MainActivity.this,makealarmActivity.class);
+                        intent = new Intent(MainActivity.this,QuestionmakeActivity.class);
                         startActivity(intent);
                         break;
                     case "journal":
-                        switch (view.getId()){
-                            case R.id.main_fab:
-                                anim();
-                                break;
-                            case R.id.main_fab_status:
-                                anim();
-                                break;
-                            case R.id.main_fab_write:
-                                anim();
-                                break;
-                        }
+                        anim();
                         break;
 
                     default:break;
                 }
+            }
+        });
+
+        fab_write.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intent = new Intent(MainActivity.this,JournalmakeActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        fab_status.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intent = new Intent(MainActivity.this,JournalstatusActivity.class);
+                startActivity(intent);
             }
         });
 

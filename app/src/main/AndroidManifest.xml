@@ -13,7 +13,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SCA_Project">
-        <activity android:name=".AmendActivity"></activity>
+        <activity android:name=".questionreadActivity"></activity>
+        <activity android:name=".JournalstatusActivity" />
+        <activity android:name=".JournalreadActivity" />
+        <activity android:name=".JournalmakeActivity" />
+        <activity android:name=".QuestionmakeActivity" />
+        <activity android:name=".AmendActivity" />
         <activity android:name=".makealarmActivity" />
         <activity
             android:name=".SplashActivity"
