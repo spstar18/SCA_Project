@@ -43,7 +43,8 @@ public class MainActivity extends AppCompatActivity {
         questionFragment = new questionFragment();
         userpageFragment = new UserpageFragment();
         fab = findViewById(R.id.main_fab);
-
+        int selectedItemId = bottomNavigationView.getSelectedItemId();
+        MenuItem selectedItem = bottomNavigationView.getMenu().findItem(selectedItemId);
 
 
         //실행시 home프래그먼트를 기본으로 띄움
@@ -57,25 +58,29 @@ public class MainActivity extends AppCompatActivity {
 
                     case menu_home:{
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_place,homeFragment).commitAllowingStateLoss();
+                        fab.hide();
                         return true;
 
                     }
                     case menu_alarm:{
-
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_place,alarmFragment).commitAllowingStateLoss();
+                        fab.show();
                         return true;
                     }
                     case menu_question:{
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_place,questionFragment).commitAllowingStateLoss();
+                        fab.show();
                         return true;
                     }
 
                     case menu_journal:{
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_place,journalFragment).commitAllowingStateLoss();
+                        fab.show();
                         return true;
                     }
                     case menu_user:{
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_place,userpageFragment).commitAllowingStateLoss();
+                        fab.hide();
                         return true;
                     }
 
@@ -86,12 +91,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //fab버튼 눌렀을때
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this,makealarmActivity.class);
+                startActivity(intent);
             }
         });
+
+
 
     }
 }
