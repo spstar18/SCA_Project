@@ -3,10 +3,13 @@ package com.example.sca_project;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import static com.example.sca_project.R.id.menu_home;
 import static com.example.sca_project.R.id.menu_alarm;
@@ -25,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     journalFragment journalFragment;
     questionFragment questionFragment;
     UserpageFragment userpageFragment;
+    FloatingActionButton fab;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
         journalFragment = new journalFragment();
         questionFragment = new questionFragment();
         userpageFragment = new UserpageFragment();
+        fab = findViewById(R.id.main_fab);
+
 
 
         //실행시 home프래그먼트를 기본으로 띄움
@@ -76,6 +83,13 @@ public class MainActivity extends AppCompatActivity {
                 }
 
 
+            }
+        });
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,makealarmActivity.class);
             }
         });
 
