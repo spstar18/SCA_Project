@@ -1,5 +1,6 @@
 package com.example.sca_project;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,6 +61,18 @@ public class UserpageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_userpage, container, false);
+        ViewGroup viewGroup =(ViewGroup)inflater.inflate(R.layout.fragment_userpage, container, false);
+
+        Button btnamend = viewGroup.findViewById(R.id.user_btn_amend);
+
+        btnamend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(),AmendActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        return viewGroup;
     }
 }

@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SCA_Project">
-        <activity android:name=".makealarmActivity"></activity>
+        <activity android:name=".AmendActivity"></activity>
+        <activity android:name=".makealarmActivity" />
         <activity
             android:name=".SplashActivity"
             android:label="@string/title_activity_splash">

@@ -3,6 +3,7 @@ package com.example.sca_project;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -59,6 +60,10 @@ public class alarmFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_alarm, container, false);
+        ViewGroup viewGroup = (ViewGroup)inflater.inflate(R.layout.fragment_alarm, container, false);
+        RecyclerView recyclerView = viewGroup.findViewById(R.id.recyclerview_alarm);
+
+
+        return viewGroup;
     }
 }

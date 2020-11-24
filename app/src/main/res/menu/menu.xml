@@ -16,7 +16,7 @@
     <item
         android:id="@+id/menu_journal"
         android:icon="@drawable/journal"
-        android:title="write" />
+        android:title="journal" />
     <item
         android:id="@+id/menu_user"
         android:icon="@drawable/user"

@@ -13,98 +13,91 @@
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/outline_username"
+        app:layout_constraintBottom_toTopOf="@+id/layout_singup"
         android:text="Create Account"
         android:textSize="32sp"
         />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/outline_username"
-        app:helperTextEnabled="true"
-        app:helperText="Username"
+    <LinearLayout
+        android:id="@+id/layout_singup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="username"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:startIconDrawable="@drawable/pw18dp"
-        app:layout_constraintBottom_toTopOf="@+id/outline_signemail"
-
-        >
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/user_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/outline_signemail"
-        app:helperTextEnabled="true"
-        app:helperText="E-Mail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="test@naver.com"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:startIconDrawable="@drawable/email18dp"
-
-        app:layout_constraintBottom_toTopOf="@id/outline_signpw"
-        >
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/user_signemail"
-            android:inputType="textEmailAddress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/outline_signpw"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:helperTextEnabled="true"
-        app:helperText="Password"
-        android:hint="password"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:startIconDrawable="@drawable/pw18dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:endIconMode="password_toggle"
-        >
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="vertical">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/sign_pw"
-            android:inputType="textPassword"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            />
+            android:hint="username"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:startIconDrawable="@drawable/user"
+            app:layout_constraintBottom_toTopOf="@+id/outline_signemail"
 
-    </com.google.android.material.textfield.TextInputLayout>
+            >
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/outline_reconfirm"
-        app:helperTextEnabled="true"
-        app:helperText="Reconfirm"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="password"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:startIconDrawable="@drawable/pw18dp"
-        app:layout_constraintTop_toBottomOf="@+id/outline_signpw"
-        app:endIconMode="password_toggle"
-        >
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/user_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/sign_reconfirm"
-            android:inputType="textPassword"
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            />
+            android:hint="test@naver.com"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:startIconDrawable="@drawable/email18dp"
+            >
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/user_signemail"
+                android:inputType="textEmailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="password"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:startIconDrawable="@drawable/pw18dp"
+            app:endIconMode="password_toggle"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/sign_pw"
+                android:inputType="textPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="password"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:startIconDrawable="@drawable/pw18dp"
+            app:endIconMode="password_toggle"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/sign_reconfirm"
+                android:inputType="textPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
 
 
 
@@ -116,7 +109,7 @@
         android:text="Sign Up"
         app:icon="@drawable/east"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
-        app:layout_constraintTop_toBottomOf="@+id/outline_reconfirm"
+        app:layout_constraintTop_toBottomOf="@+id/layout_singup"
         app:layout_constraintRight_toRightOf="parent"
         />
 
