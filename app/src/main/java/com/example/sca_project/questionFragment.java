@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +15,8 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class questionFragment extends Fragment {
+
+    SearchView searchView;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -58,7 +61,24 @@ public class questionFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        ViewGroup viewGroup = (ViewGroup)inflater.inflate(R.layout.fragment_question, container, false);
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_question, container, false);
+        searchView=viewGroup.findViewById(R.id.search_qna);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                //입력받은 문자열 처리
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                //입력란의 문자열이 바뀔때의 처리
+                return false;
+            }
+        });
+        return viewGroup;
     }
 }
