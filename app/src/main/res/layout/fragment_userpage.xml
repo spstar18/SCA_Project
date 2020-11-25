@@ -8,12 +8,54 @@
     android:padding="32dp">
 
     <!-- TODO: Update blank fragment layout -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview_userpage"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_profile"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="64dp"/>
+        android:layout_marginTop="64dp"
+        >
+
+        <ImageView
+            android:id="@+id/userpage_img"
+            android:layout_width="128sp"
+            android:layout_height="128sp"
+            android:padding="4dp"
+            android:src="@drawable/ic_launcher_foreground"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/userpage_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ㅜ이름"
+            android:textSize="32sp"
+            app:layout_constraintTop_toTopOf="@+id/userpage_img"
+            app:layout_constraintLeft_toRightOf="@+id/userpage_img"/>
+
+        <TextView
+            android:id="@+id/userpage_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/userpage_name"
+            app:layout_constraintBottom_toTopOf="@+id/userpage_email"
+            app:layout_constraintLeft_toRightOf="@+id/userpage_img"
+            android:text="nickname"
+            android:textSize="16sp"
+            />
+
+        <TextView
+            android:id="@+id/userpage_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="asdf@asdf.com"
+            app:layout_constraintBottom_toBottomOf="@+id/userpage_img"
+            app:layout_constraintLeft_toRightOf="@+id/userpage_img"
+            android:textSize="16sp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
         android:id="@+id/user_btn_amend"
@@ -21,7 +63,7 @@
         android:layout_height="wrap_content"
         android:text="프로필 수정"
         android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerview_userpage"
+        app:layout_constraintTop_toBottomOf="@+id/layout_profile"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
     <Button

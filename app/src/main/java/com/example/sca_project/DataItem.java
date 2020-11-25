@@ -3,27 +3,11 @@ package com.example.sca_project;
 import android.graphics.drawable.Drawable;
 
 public class DataItem {
-    private Drawable user_img;
-    private String name, viewnum, main;
-    private String user_nickname, user_email;
-    private String alarm_cycle, alarm_time, alarm_ampm;
+    private String viewnum, main;
+    private String journal_title, qna_title, schedule_title;
+    private String alarm_cycle, alarm_time, alarm_ampm, alarm_title;
     private String journal_day;
 
-    public Drawable getUser_img() {
-        return user_img;
-    }
-
-    public void setUser_img(Drawable user_img) {
-        this.user_img = user_img;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getViewnum() {
         return viewnum;
@@ -41,21 +25,6 @@ public class DataItem {
         this.main = main;
     }
 
-    public String getUser_nickname() {
-        return user_nickname;
-    }
-
-    public void setUser_nickname(String user_nickname) {
-        this.user_nickname = user_nickname;
-    }
-
-    public String getUser_email() {
-        return user_email;
-    }
-
-    public void setUser_email(String user_email) {
-        this.user_email = user_email;
-    }
 
     public String getAlarm_cycle() {
         return alarm_cycle;
@@ -87,5 +56,37 @@ public class DataItem {
 
     public void setJournal_day(String journal_day) {
         this.journal_day = journal_day;
+    }
+
+    public String getJournal_title() {
+        return journal_title;
+    }
+
+    public void setJournal_title(String journal_title) {
+        this.journal_title = journal_title;
+    }
+
+    public String getQna_title() {
+        return qna_title;
+    }
+
+    public void setQna_title(String qna_title) {
+        this.qna_title = qna_title;
+    }
+
+    public String getSchedule_title() {
+        return schedule_title;
+    }
+
+    public void setSchedule_title(String schedule_title) {
+        this.schedule_title = schedule_title;
+    }
+
+    public String getAlarm_title() {
+        return alarm_title;
+    }
+
+    public void setAlarm_title(String alarm_title) {
+        this.alarm_title = alarm_title;
     }
 }
