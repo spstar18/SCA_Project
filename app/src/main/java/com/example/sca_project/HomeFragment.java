@@ -3,11 +3,14 @@ package com.example.sca_project;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -15,6 +18,9 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class HomeFragment extends Fragment {
+
+    RecyclerView recyclerView;
+    ArrayList<DataItem> data = new ArrayList<>();
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,9 +67,33 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         ViewGroup viewGroup = (ViewGroup)inflater.inflate(R.layout.fragment_home, container, false);
-        RecyclerView recyclerView;
 
 
+
+        recyclerView=viewGroup.findViewById(R.id.recyclerview_home);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        RecyclerAdapter recyclerAdapter=new RecyclerAdapter(getContext(),data);
+        recyclerView.setAdapter(recyclerAdapter);
+
+        for (int i = 0; i < 10; i++) {
+            i++;
+            DataItem item = new DataItem();
+            item.setSchedule_title(i+"번째 스케쥴");
+            // 각 값이 들어간 data를 adapter에 추가합니다.
+           data.add(item);
+        }
+        recyclerAdapter.setData(data);
         return viewGroup;
     }
+
+//    public void testadd(){
+//        data.add(additem(get));
+//    }
+
+    public DataItem additem(String string){
+        DataItem item = new DataItem();
+        item.setSchedule_title(string);
+        return item;
+    }
+
 }

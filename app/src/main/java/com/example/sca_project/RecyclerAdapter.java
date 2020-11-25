@@ -1,6 +1,7 @@
 package com.example.sca_project;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private ArrayList<DataItem> myDataList = null;
+    private ArrayList<DataItem> myDataList;
 
     public final static int ITEM_ALRAM = 101;
     public final static int ITEM_JOURNAL = 102;
@@ -22,8 +23,12 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     public final static int ITEM_SCHEDULE = 104;
     Context context;
 
-    RecyclerAdapter(Context context, ArrayList<DataItem> dataList)
-    {
+    public void setData(ArrayList<DataItem> data) {
+        myDataList = data;
+        notifyDataSetChanged();
+    }
+
+    RecyclerAdapter(Context context, ArrayList<DataItem> dataList) {
         this.context = context;
         myDataList = dataList;
     }
@@ -37,9 +42,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             case ITEM_JOURNAL:
                 return new JournalViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_journal, parent, false));
             case ITEM_QNA:
-                return new QnaViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_alarm, parent, false));
+                return new QnaViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_qna, parent, false));
             case ITEM_SCHEDULE:
-                return new ScheduleViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_alarm, parent, false));
+                return new ScheduleViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_schedule, parent, false));
 
         }
         return null;
@@ -48,7 +53,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
 
-        switch (holder.getItemViewType()){
+        switch (holder.getItemViewType()) {
             case ITEM_ALRAM:
                 DataItem item = myDataList.get(position);
                 AlarmViewHolder alarmholder = (AlarmViewHolder) holder;
@@ -88,19 +93,19 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     @Override
     public int getItemViewType(int position) {
-        if(myDataList.get(position).getAlarm_time().isEmpty() == false) {
+        DataItem item = myDataList.get(position);
+
+        if (item.getAlarm_time() != null) {
             return ITEM_ALRAM;
-        }
-        if(myDataList.get(position).getJournal_title().isEmpty() == false) {
+        } else if (item.getJournal_title() != null) {
             return ITEM_JOURNAL;
-        }
-        if(myDataList.get(position).getQna_title().isEmpty() == false) {
+        } else if (item.getQna_title() != null) {
             return ITEM_QNA;
-        }
-        if(myDataList.get(position).getSchedule_title().isEmpty() == false) {
+        } else if (item.getSchedule_title() != null) {
             return ITEM_SCHEDULE;
-        }
-        return ITEM_ALRAM;
+        } else
+            return ITEM_SCHEDULE;
+
     }
 
     @Override
@@ -109,22 +114,22 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
 
 
-    public class AlarmViewHolder extends RecyclerView.ViewHolder{
+    public class AlarmViewHolder extends RecyclerView.ViewHolder {
         private TextView alarmCycle, alarmPmam, alarmTime, alarmName;
         private Switch alarmSwitch;
 
         public AlarmViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            alarmName =itemView.findViewById(R.id.item_alarm_main);
-            alarmCycle =itemView.findViewById(R.id.item_alarm_cycle);
+            alarmName = itemView.findViewById(R.id.item_alarm_main);
+            alarmCycle = itemView.findViewById(R.id.item_alarm_cycle);
             alarmPmam = itemView.findViewById(R.id.item_alarm_pmam);
             alarmTime = itemView.findViewById(R.id.item_alarm_time);
             alarmSwitch = itemView.findViewById(R.id.item_alarm_switch);
         }
     }
 
-    public class JournalViewHolder extends RecyclerView.ViewHolder{
+    public class JournalViewHolder extends RecyclerView.ViewHolder {
         private TextView journalDay, journalTitle, journalMain, journalViewnum;
 
         public JournalViewHolder(@NonNull View itemView) {
@@ -138,7 +143,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         }
     }
 
-    public class QnaViewHolder extends RecyclerView.ViewHolder{
+    public class QnaViewHolder extends RecyclerView.ViewHolder {
         private TextView qnaTitle, qnaMain, qnaViewnum;
 
         public QnaViewHolder(@NonNull View itemView) {
@@ -150,13 +155,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         }
     }
 
-    public class ScheduleViewHolder extends RecyclerView.ViewHolder{
+    public class ScheduleViewHolder extends RecyclerView.ViewHolder {
         private TextView scheduleTitle;
 
         public ScheduleViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            scheduleTitle=itemView.findViewById(R.id.item_schedule_title);
+            scheduleTitle = itemView.findViewById(R.id.item_schedule_title);
         }
     }
 }
