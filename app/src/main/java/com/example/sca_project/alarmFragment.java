@@ -3,11 +3,14 @@ package com.example.sca_project;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -15,6 +18,10 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class alarmFragment extends Fragment {
+
+
+    RecyclerView recyclerView;
+    ArrayList<DataItem> data = new ArrayList<>();
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,7 +68,24 @@ public class alarmFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         ViewGroup viewGroup = (ViewGroup)inflater.inflate(R.layout.fragment_alarm, container, false);
-        RecyclerView recyclerView = viewGroup.findViewById(R.id.recyclerview_alarm);
+
+        recyclerView=viewGroup.findViewById(R.id.recyclerview_alarm);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        RecyclerAdapter recyclerAdapter=new RecyclerAdapter(getContext(),data);
+        recyclerView.setAdapter(recyclerAdapter);
+
+//        for (int i = 0; i < 10; i++) {
+//            i++;
+            DataItem item = new DataItem();
+            item.setAlarm_cycle("3주기");
+            item.setAlarm_ampm("AM");
+            item.setAlarm_time("12:12");
+            item.setAlarm_title("알람이름");
+            item.setMain("알람내영");
+            data.add(item);
+//        }
+        recyclerAdapter.setData(data);
+
 
 
         return viewGroup;

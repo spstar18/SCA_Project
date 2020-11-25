@@ -3,11 +3,15 @@ package com.example.sca_project;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SearchView;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -17,6 +21,8 @@ import android.widget.SearchView;
 public class questionFragment extends Fragment {
 
     SearchView searchView;
+    RecyclerView recyclerView;
+    ArrayList<DataItem> data = new ArrayList<>();
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -65,6 +71,21 @@ public class questionFragment extends Fragment {
         ViewGroup viewGroup = (ViewGroup)inflater.inflate(R.layout.fragment_question, container, false);
         // Inflate the layout for this fragment
         searchView=viewGroup.findViewById(R.id.search_qna);
+
+        recyclerView=viewGroup.findViewById(R.id.recyclerview_qna);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        RecyclerAdapter recyclerAdapter=new RecyclerAdapter(getContext(),data);
+        recyclerView.setAdapter(recyclerAdapter);
+
+//        for (int i = 0; i < 10; i++) {
+//            i++;
+        DataItem item = new DataItem();
+        item.setQna_title("질문이름");
+        item.setMain("질문내용");
+        item.setViewnum("180");
+        data.add(item);
+//        }
+        recyclerAdapter.setData(data);
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override

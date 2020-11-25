@@ -3,10 +3,14 @@ package com.example.sca_project;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +18,9 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class journalFragment extends Fragment {
+
+    RecyclerView recyclerView;
+    ArrayList<DataItem> data = new ArrayList<>();
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -59,6 +66,23 @@ public class journalFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_journal, container, false);
+        ViewGroup viewGroup =(ViewGroup)inflater.inflate(R.layout.fragment_journal, container, false);
+
+        recyclerView=viewGroup.findViewById(R.id.recyclerview_journal);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        RecyclerAdapter recyclerAdapter=new RecyclerAdapter(getContext(),data);
+        recyclerView.setAdapter(recyclerAdapter);
+
+
+        DataItem item = new DataItem();
+        item.setJournal_title("일지젬;ㅗㄱ");
+        item.setJournal_day("2020/11/25");
+        item.setViewnum("170");
+        item.setMain("ㅁ니라ㅓㄴ매ㅓㄻㄴㄹㅇ");
+        data.add(item);
+        recyclerAdapter.setData(data);
+
+
+        return viewGroup;
     }
 }
