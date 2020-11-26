@@ -37,7 +37,7 @@
     <ImageView
         android:layout_width="12px"
         android:layout_height="12px"
-        android:src="@drawable/ic_launcher_foreground"
+        android:src="@drawable/eye"
         app:layout_constraintRight_toLeftOf="@+id/item_qna_viewnum"
         app:layout_constraintTop_toTopOf="parent"
         android:foregroundTint="@color/black"/>

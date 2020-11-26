@@ -15,7 +15,7 @@
         android:title="question" />
     <item
         android:id="@+id/menu_journal"
-        android:icon="@drawable/journal"
+        android:icon="@drawable/book"
         android:title="journal" />
     <item
         android:id="@+id/menu_user"
